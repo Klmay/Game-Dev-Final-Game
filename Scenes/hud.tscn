@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg58pgd22cnm7"]
+
+[ext_resource type="FontFile" uid="uid://bxkuxxer7cmvm" path="res://addons/Font Pack/Abbieshire.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://ch45hxahok171" path="res://hud.gd" id="1_64ctp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_64ctp"]
+font = ExtResource("1_37p78")
+font_size = 30
+font_color = Color(0.15294197, 0.6133078, 5.7756904e-07, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_64ctp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -47.5
+offset_right = 47.5
+offset_bottom = 27.0
+grow_horizontal = 2
+text = "Clues: "
+label_settings = SubResource("LabelSettings_64ctp")
+horizontal_alignment = 1

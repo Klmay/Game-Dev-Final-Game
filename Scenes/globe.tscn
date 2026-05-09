@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b586pp1e4lb2j"]
+
+[ext_resource type="Script" uid="uid://bjfh8bl0nptvw" path="res://globe.gd" id="1_84e1u"]
+[ext_resource type="Texture2D" uid="uid://jite3pdq4tvm" path="res://assets/Interactables/InteractableGlobe.png" id="1_tck7w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84e1u"]
+size = Vector2(22, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk0q4"]
+size = Vector2(42, 51)
+
+[node name="Globe" type="StaticBody2D"]
+script = ExtResource("1_84e1u")
+item_type = 1
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tck7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_84e1u")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, 0.5)
+shape = SubResource("RectangleShape2D_dk0q4")

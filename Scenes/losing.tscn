@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://du0rc620d2n51"]
+
+[ext_resource type="Script" uid="uid://d0qwxkaey8hrv" path="res://losing.gd" id="1_bbagu"]
+[ext_resource type="FontFile" uid="uid://bxkuxxer7cmvm" path="res://addons/Font Pack/Abbieshire.ttf" id="2_drmdh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w12c8"]
+font = ExtResource("2_drmdh")
+font_color = Color(0.5837971, 0, 0.07153206, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m7bk8"]
+font = ExtResource("2_drmdh")
+font_color = Color(0.51876587, 0, 0.05006677, 1)
+
+[node name="Losing" type="CanvasLayer"]
+script = ExtResource("1_bbagu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -651.0
+offset_top = -136.00002
+offset_right = -135.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You've been consumed by the ghosts of a past that's not your own."
+label_settings = SubResource("LabelSettings_w12c8")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Maybe in another life you'll make it..."
+label_settings = SubResource("LabelSettings_m7bk8")
+horizontal_alignment = 1

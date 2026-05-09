@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc7aaubmmu22h"]
+
+[ext_resource type="Script" uid="uid://cn6v4cc28ros8" path="res://ending.gd" id="1_dmh3q"]
+[ext_resource type="FontFile" uid="uid://bxkuxxer7cmvm" path="res://addons/Font Pack/Abbieshire.ttf" id="1_fsb5k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dmh3q"]
+font = ExtResource("1_fsb5k")
+font_size = 23
+font_color = Color(0.42921275, 0, 0.012668591, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iggq8"]
+font = ExtResource("1_fsb5k")
+font_color = Color(0.42745098, 0, 0.011764706, 1)
+
+[node name="Ending" type="CanvasLayer"]
+script = ExtResource("1_dmh3q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -661.0
+offset_top = -82.0
+offset_right = -125.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "The house needed you. 
+Did you really think it was going to let you go?"
+label_settings = SubResource("LabelSettings_dmh3q")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "This is the end of your story."
+label_settings = SubResource("LabelSettings_iggq8")
+horizontal_alignment = 1

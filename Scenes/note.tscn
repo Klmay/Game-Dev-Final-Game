@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwfau88affqxs"]
+
+[ext_resource type="Texture2D" uid="uid://cbyqvs2rmhxls" path="res://assets/Interactables/InteractableNote.png" id="1_doocs"]
+[ext_resource type="Script" uid="uid://cm5wxw0kuaqdo" path="res://note.gd" id="1_wn01w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wn01w"]
+size = Vector2(13, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyp5m"]
+size = Vector2(33, 19)
+
+[node name="Note" type="StaticBody2D"]
+script = ExtResource("1_wn01w")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5568337
+texture = ExtResource("1_doocs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_wn01w")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.5, 0)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9, -0.5)
+shape = SubResource("RectangleShape2D_lyp5m")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

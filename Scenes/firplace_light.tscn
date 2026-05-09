@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://dn0ujhmxeomox"]
+
+[ext_resource type="Texture2D" uid="uid://bg23vrwwnmcpf" path="res://assets/light/FireplaceFire.png" id="1_lbwkp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m12ed"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne6kn"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu8wa"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dvfj"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aofr"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vokt"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beio6"]
+atlas = ExtResource("1_lbwkp")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_scqgi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m12ed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne6kn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu8wa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dvfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aofr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vokt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beio6")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_n386g"]
+colors = PackedColorArray(1, 0.5686275, 0, 0.68235296, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vl4ru"]
+gradient = SubResource("Gradient_n386g")
+fill = 1
+fill_from = Vector2(0.5, 0.49375)
+fill_to = Vector2(0.85625, 0.0875)
+
+[node name="FirplaceLight" type="StaticBody2D"]
+z_index = 100
+y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, 8)
+scale = Vector2(1.0078125, 0.875)
+sprite_frames = SubResource("SpriteFrames_scqgi")
+animation = &"fire"
+autoplay = "fire"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-11.5, 16.999996)
+texture = SubResource("GradientTexture2D_vl4ru")

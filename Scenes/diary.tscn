@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr34emewcu6ra"]
+
+[ext_resource type="Texture2D" uid="uid://p7eom570msjn" path="res://assets/Interactables/InteractableDiary.png" id="1_588vs"]
+[ext_resource type="Script" uid="uid://cdkdqdsraedso" path="res://diary.gd" id="1_avw01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avw01"]
+size = Vector2(14, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pslj"]
+size = Vector2(14, 33)
+
+[node name="Diary" type="StaticBody2D"]
+collision_layer = 8
+script = ExtResource("1_avw01")
+item_type = 5
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_588vs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_avw01")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_2pslj")

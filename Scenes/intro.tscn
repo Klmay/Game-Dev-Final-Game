@@ -1,0 +1,104 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbg2vuenjoh66"]
+
+[ext_resource type="Script" uid="uid://4aogjaa5mbda" path="res://intro.gd" id="1_ayt76"]
+[ext_resource type="FontFile" uid="uid://bxkuxxer7cmvm" path="res://addons/Font Pack/Abbieshire.ttf" id="1_s2ta7"]
+[ext_resource type="AudioStream" uid="uid://xjhnjnmkptxc" path="res://assets/sounds/lightning.mp3" id="3_7a8ye"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4887"]
+font = ExtResource("1_s2ta7")
+font_color = Color(0.7985249, 0, 0.11406522, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2ta7"]
+font = ExtResource("1_s2ta7")
+font_color = Color(0.79607844, 0, 0.11372549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ayt76"]
+font = ExtResource("1_s2ta7")
+font_color = Color(0.79607844, 0, 0.11372549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7a8ye"]
+font = ExtResource("1_s2ta7")
+font_color = Color(0.7490196, 0.003921569, 0.10980392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0a7ni"]
+font = ExtResource("1_s2ta7")
+font_color = Color(0.7490196, 0.003921569, 0.10980392, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y72e6"]
+font = ExtResource("1_s2ta7")
+font_color = Color(0.7294118, 0.003921569, 0.10980392, 1)
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource("1_ayt76")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.06469653, 0.06469653, 0.06469653, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -259.0
+offset_top = 88.0
+offset_right = 576.0
+offset_bottom = 346.5
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Your father was a director for a well known TV Show back in the 50's."
+label_settings = SubResource("LabelSettings_g4887")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "\"Tales From Beyond the Veil\" it was called, a show about the supernatural world."
+label_settings = SubResource("LabelSettings_s2ta7")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "But after ten years, it was cancelled for being \"unrealistic\". 
+Your father fell into a deep depression after that,
+ feeling his life's work was disrespected."
+label_settings = SubResource("LabelSettings_ayt76")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "He started locking himself away in his office more. 
+Eventually you and your sibling moved out, 
+the hostile atmosphere growing more intense."
+label_settings = SubResource("LabelSettings_7a8ye")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "But recently, you received a letter, asking you to come back,
+saying your mother was sick.
+After much debate, you eventually decided to go see him after six years."
+label_settings = SubResource("LabelSettings_0a7ni")
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "You had no idea what you were going to find..."
+label_settings = SubResource("LabelSettings_y72e6")
+horizontal_alignment = 1
+
+[node name="lightning" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7a8ye")
+pitch_scale = 0.27
+autoplay = true

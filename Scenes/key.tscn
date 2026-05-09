@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://rv3b606jsd1q"]
+
+[ext_resource type="Texture2D" uid="uid://d4jl8tolvkgl6" path="res://assets/Interactables/InteractableKey.png" id="1_up4cr"]
+
+[sub_resource type="GDScript" id="GDScript_up4cr"]
+script/source = "extends StaticBody2D
+
+enum Step {NOTE, BOOKSHELF, POT, PLANT, CLOCK, CHEST, FIREPLACE}
+@export var item_type: Step
+@export_multiline var flavor_text: String = \"It's just an ordinary object.\"
+@export_multiline var clue_text: String = \"You found a new clue!\"
+
+func interact():
+	if not Global.dialogue_box: return
+	if Global.puzzle_step == item_type:
+		Global.dialogue_box.show_dialogue(clue_text)
+		Global.puzzle_step += 1
+		var player = get_tree().get_first_node_in_group(\"Player\") 
+		if player:
+			player.trigger_save()
+	elif Global.puzzle_step > item_type:
+		Global.dialogue_box.show_dialogue(\"I've already searched this.\")
+	elif item_type == Step.FIREPLACE and Global.puzzle_step == 6:
+		Global.dialogue_box.show_dialogue(\"The path is clear. Time to leave.\")
+		Global.change_level(\"res://Level2.tscn\")
+	else:
+		Global.dialogue_box.show_dialogue(flavor_text)
+"
+
+[node name="Key" type="StaticBody2D"]
+script = SubResource("GDScript_up4cr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_up4cr")

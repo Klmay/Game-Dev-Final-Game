@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b76qcyqn1hhnf"]
+
+[ext_resource type="Texture2D" uid="uid://3ookan3pd56f" path="res://assets/Interactables/InteractableBedroomNote.png" id="1_eq0f4"]
+[ext_resource type="Script" uid="uid://b5j7cbuqlwlf3" path="res://note_2.gd" id="1_srlcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srlcp"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc8g0"]
+size = Vector2(12, 25)
+
+[node name="Note2" type="StaticBody2D"]
+collision_layer = 8
+script = ExtResource("1_srlcp")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_eq0f4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_srlcp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_yc8g0")

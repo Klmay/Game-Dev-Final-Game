@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvfugi5whvnom"]
+
+[ext_resource type="Texture2D" uid="uid://ljbty0ffhhx7" path="res://assets/light/CandleLight.png" id="1_qpnmm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpnmm"]
+atlas = ExtResource("1_qpnmm")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo45e"]
+atlas = ExtResource("1_qpnmm")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_715nn"]
+atlas = ExtResource("1_qpnmm")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1ba3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpnmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo45e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_715nn")
+}],
+"loop": true,
+"name": &"flame",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_qpnmm"]
+colors = PackedColorArray(1, 0.6431373, 0, 0.60784316, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mo45e"]
+gradient = SubResource("Gradient_qpnmm")
+fill = 1
+fill_from = Vector2(0.5125, 0.525)
+fill_to = Vector2(0.86875, 0.175)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+y_sort_enabled = true
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_k1ba3")
+animation = &"flame"
+autoplay = "flame"
+frame = 1
+frame_progress = 0.84519094
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-5.9604645e-08, 1.4210855e-14)
+scale = Vector2(0.35937497, 0.328125)
+texture = SubResource("GradientTexture2D_mo45e")

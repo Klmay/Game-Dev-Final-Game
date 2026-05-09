@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh15u6qnu54jk"]
+
+[ext_resource type="Script" uid="uid://blv1vi71a15ci" path="res://crow.gd" id="1_k41no"]
+[ext_resource type="Texture2D" uid="uid://cg8sxruxiqrur" path="res://assets/Interactables/crow_npc.png" id="2_s2e11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k41no"]
+atlas = ExtResource("2_s2e11")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2e11"]
+atlas = ExtResource("2_s2e11")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gt6q"]
+atlas = ExtResource("2_s2e11")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wx7fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k41no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2e11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gt6q")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.2
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gt6q"]
+size = Vector2(11, 35)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wx7fn"]
+radius = 14.0
+height = 42.0
+
+[node name="crow" type="StaticBody2D"]
+collision_layer = 8
+script = ExtResource("1_k41no")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wx7fn")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_7gt6q")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_wx7fn")
